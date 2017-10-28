@@ -18,14 +18,14 @@ var wait = [{
 }];
 
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "home.html"))
+    res.sendFile(path.join(__dirname, "/public/home.html"))
 });
 app.get("/make", function(req, res) {
-    res.sendFile(path.join(__dirname, "make.html"))
+    res.sendFile(path.join(__dirname, "/public/make.html"))
 });
 
 app.get("/view", function(req, res) {
-    res.sendFile(path.join(__dirname, "view.html"))
+    res.sendFile(path.join(__dirname, "/public/view.html"))
 });
 app.get("/wait", function(req, res) {
     res.json(wait);

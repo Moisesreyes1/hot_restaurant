@@ -8,4 +8,4 @@
 
 * View Tables: By clicking on the "view tables" button user will be able to see current reservations as well as reservations that are on a waiting list.
 
-* Note: User may return to the "home page" at any moment by clicking on the "home" icon.
+* Note: User may return to the "home page" at any moment by clicking on the "home" button.
