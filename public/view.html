@@ -45,7 +45,6 @@
       console.log(data);
       if (data) {
         for (var i = 0; i < data.length; i++) {
-          for (var i = 0; i < 5; i++) {
             var ID = data[i].ID;
 
             var resDiv = $("<div>").addClass("well");
@@ -55,18 +54,10 @@
             label.append(i)
             h2.append(label).append("|" + ID);
             resDiv.append(h2);
+          if (i < 5) {
             $(".reservations").append(resDiv);
           }
-          for (var i = 0; i >= 5; i++) {
-                        var ID = data[i].ID;
-
-            var resDiv = $("<div>").addClass("well");
-            var h2 = $("<h2>");
-            var label = $("<span>").addClass("label label-primary");
-
-            label.append(i)
-            h2.append(label).append("|" + ID);
-            resDiv.append(h2);
+          if (i >= 5) {
             $(".wait").append(resDiv);
           }
         }
