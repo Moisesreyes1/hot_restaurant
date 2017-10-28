@@ -11,4 +11,13 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//
+//Create new reservation
+app.post("/make", function(req, res) {
+	var newReservation = req.body;
+	newReservation.name = newReservation.name.replace(/\s+/g, "").toLowerCase();
+	console.log(newReservation);
+	newReservation.push(newReservation);
+	res.json(newReservation);
+});
+
+module.exports = reservationPost;
