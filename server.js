@@ -7,6 +7,22 @@ var path = require("path");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+//variable arrays
+var reservation {
+    name: "",
+    phone: "",
+    email: "",
+    ID: ""
+};
+
+var tables {
+    name: "",
+    phone: "",
+    email: "",
+    ID: "",
+};
+
+app.get("/", function(req, res))
 
 
 // Sets up the Express app to handle data parsing
