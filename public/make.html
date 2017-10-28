@@ -37,7 +37,7 @@
               <label for="ID">Unique ID</label>
               <input type="text" class="form-control" id="ID">
             </div>
-            <button type="submit" class="btn btn-warning">Submit</button>
+            <button type="submit" class="btn btn-warning" id="submit">Submit</button>
           </form>
         </div>
       </div>
@@ -51,7 +51,23 @@
   </div>
 
   <script type="text/javascript">
-    
+    //This should post the form data
+    $("#submit").on("click", function(event) {
+      event.preventDefault();
+      var newReserve = {
+        name: $("#name").val().trim(),
+        phone: $("#phone").val().trim(),
+        email: $("#email").val().trim(),
+        ID: $("#ID").val().trim()
+      };
+
+      $.post("/api/new", newReserve)
+      .done(function(data) {
+        console.log(data);
+        alert("Reserving table...");
+      });
+    });
+
   </script>
   
 </body>
