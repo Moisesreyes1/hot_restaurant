@@ -19,12 +19,7 @@
     <div>
       <div class="panel panel-danger">
         <div class="panel-heading"><strong>Current Reservations</strong></div>
-        <div class="panel-body">
-          
-          <div class="well">
-            <h2><span class="label label-primary">0</span>| Sample</h2>        
-          </div>
-
+        <div class="panel-body reservations">
 
         </div>
       </div>
@@ -33,7 +28,7 @@
     <div>
       <div class="panel panel-danger">
         <div class="panel-heading"><strong>Waiting List</strong></div>
-        <div class="panel-body">
+        <div class="panel-body wait">
 
         </div>
       </div>
@@ -42,6 +37,47 @@
     <button type="button" class="btn btn-default btn-xs" href="/api/tables">API Table Link</a>
     <button type="button" class="btn btn-default btn-xs" href="/api/waitlist">API Wait List</a>
   </div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  // attempting to show data on the page
+    $.get("/api/", function(data) {
+      console.log(data);
+      if (data) {
+        for (var i = 0; i < data.length; i++) {
+          for (var i = 0; i < 5; i++) {
+            var ID = data[i].ID;
+
+            var resDiv = $("<div>").addClass("well");
+            var h2 = $("<h2>");
+            var label = $("<span>").addClass("label label-primary");
+
+            label.append(i)
+            h2.append(label).append("|" + ID);
+            resDiv.append(h2);
+            $(".reservations").append(resDiv);
+          }
+          for (var i = 0; i >= 5; i++) {
+                        var ID = data[i].ID;
+
+            var resDiv = $("<div>").addClass("well");
+            var h2 = $("<h2>");
+            var label = $("<span>").addClass("label label-primary");
+
+            label.append(i)
+            h2.append(label).append("|" + ID);
+            resDiv.append(h2);
+            $(".wait").append(resDiv);
+          }
+        }
+      }
+      else {
+        $("#name").text("Our data caught fire...");
+      }
+    });
+
+
+  </script>
   
 </body>
 </html>
